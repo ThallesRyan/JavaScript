@@ -1,8 +1,8 @@
-Array.prototype.filter2 = function(callback){
-    const novoArray = []
-
+Array.prototype.filter2 = function(callback){//recebe a funcao callback que será aplicada no array
+    const novoArray = [] // Cria um novo array para os itens filtrados
+    //Passa pelos itens do array  em que a funcao foi aplicada e dá um push nos itens que retornarem true da funcao callback
     for(let i = 0; i < this.length; i++){
-        if(callback(this[i], i, this)){
+        if(callback(this[i], i, this)){// a funcao callback passada pode usar esses parâmetros
             novoArray.push(this[i])
         }
     }
