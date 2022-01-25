@@ -1,0 +1,1 @@
+const tecnologias = new Map()
