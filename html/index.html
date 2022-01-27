@@ -11,20 +11,23 @@
         <h1>Exercícios HTML</h1>
     </header>
     <nav>
-        <a href="exercicios/teste.html">00 - Teste</a>
-        <a href="exercicios/temp.html">01 - Temp</a>
+        <!-- <a href="exercicios/teste.html">00 - Teste</a>
+        <a href="exercicios/temp.html">01 - Temp</a> -->
+
+        <a href wm-nav="exercicios/teste.html">00 - Teste</a> <!--Criacao de propriedade personalizada-->
+        <a href wm-nav="exercicios/temp.html">01 - Temp</a>
     </nav>
     <section id="conteudo"></section>
     <br>
     <footer>Curso de web moderno</footer>
 
-    <script>
-        document.querySelectorAll('a').forEach(link => {//associando uma funcao a cada um dos links
+    <script>        //document.querySelectorAll('a')
+        document.querySelectorAll('[wm-nav]').forEach(link => {//associando uma funcao a cada um dos links
             const conteudo = document.getElementById('conteudo') //
 
             link.onclick = function(e) {// a funcao de cada um dos links possui uma funcao que será disparada no onclick
                 e.preventDefault()// cancela o evento de troca de página para o link
-                fetch(link.href) // requisição AJAX em cima do href, que dá o link da pag. Uma vez que a promise é resolvida, chama-se o then
+/*fetch(link.href)*/fetch(link.getAttribute('wm-nav')) // requisição AJAX em cima do href, que dá o link da pag. Uma vez que a promise é resolvida, chama-se o then
                     .then(resp => resp.text())// resp.text() serve para pegar o conteudo html da pagina que se fez a requisição. uma funcao que retornará outra promise.Quando for resolvida, irá para o prox then, e terá o html a disposição
                     .then(html => conteudo.innerHTML = html) // The innerHTML property sets or returns the HTML content (inner HTML) of an element.
 
