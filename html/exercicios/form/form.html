@@ -1,7 +1,55 @@
-<!--npm i --save express@4.16.3 body-parser@1.18.2 -E -->
+<!--npm i --save express@4.16.3 
+npm i --save body-parser@1.18.2 -E -->
 <!-- node server.js-->
+<!-- npm i --save-dev nodemon-->
+<!-- nodemon server.js-->
+<!--A partir da versão 5.2 do npm, adicionaram o comando npx onde nem precisa instalar o pacote para roda-lo. No caso do nodemon da para rodar assim:
+    npx nodemon server.js-->
 
 <form action="http://localhost:3034/users" method="POST"> <!--Action manda os dados do  form para o local informado, usa-se o método Post-->
-    <input type="text" name="nome">
-    <button>Incluir</button>
+    <input type="hidden" name="id" value="3"><!--input escondido, usado para passar informações sem a necessidade de mostra-la ao usuário-->
+    <input type="text" name="nome" placeholder="Nome"><!--Placeholder deixa uma márca dágua do que deve ser escrito -->
+    <input type="password" name="senha" placeholder="Senha">
+    <textarea name="bio" cols="30" rows="10" placeholder="Biografia"></textarea><!-- Área de texto 30 colunas, 10 linhas -->
+    <div>
+        <!--Só pode se fazer uma seleção-->
+        <input type="radio" name="tipo" value="admin">Admin
+        <input type="radio" name="tipo" value="regular">Regular
+        <input type="radio" name="tipo" value="professor">Professor
+    </div>
+    <div>
+        
+        <input type="checkbox" name="ativo"> Ativo
+    </div>
+    <!--Caixa de seleção-->
+    <select name="estado">
+        <option value="">Selecione</option>
+        <option value="ac">Acre</option>
+        <option value="ba">Bahia</option>
+        <option value="ce">Ceará</option>
+    </select>
+    <!--Caixa de seleção "aberta"-->
+    <select name="interesses" multiple size="7">
+        <option value="js">Javascript</option>
+        <option value="java">Java</option>
+        <option value="php">PHP</option>
+        <option value="python">Python</option>
+        <option value="go">Go</option>
+        <option value="c">C</option>
+    </select>
+
+    
+    <button formaction="http://localhost:3034/users">Incluir</button>
+    <button formaction="http://localhost:3034/users/3">Alterar</button>
 </form> 
+
+<style>
+    input, textarea, select  {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type=radio],
+    input[type=checkbox]{
+        display: inline;
+    }
+</style>
