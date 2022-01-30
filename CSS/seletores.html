@@ -6,7 +6,82 @@
     <title>CSS Selectors</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        /* 
+        *{
+            color: #ff0;
+            background-color: blue;
+        } Seletor universal, seleciona todos os itens*/
+        .tag{/*Seletor de class*/
+            color: #ff0;
+            background-color: blue;
+        }
+        #aprovados{/*Seletor de id*/
+
+        }
+
+        #aninhado > div{/*Seletor de um filho direto de aninhado*/
+
+        }
+
+        #aninhado section{/*Qualquer descendente de aninhado que for section, será selecionado*/
+
+        }
+
+        p + ul{/*Seleciona uma tag ul que vem diretamente logo depois de uma tag p*/
+
+        }
+
+        p ~ ol{/*Seleciona um elemento ol que tenha p como irmão(tem o mesmo pai)*/
+
+        }
+
+        [feira]{/*Seleciona o elemento que tiver feira como atributo*/
+
+        }
+
+        [feira=escritorio]{/*Seleciona o elemento que tiver o atributo feira=escritorio*/
+
+        }
+
+        [feira~=escritorio]{/*Seleciona o elemento que tiver o possível atributo feira=escritorio, mesmo se tiver mais valores como feira='escritorio empresa'*/
+
+        }
+
+        [feira*=sa]{/*Seleciona o elemento feira que conter sa no seu valor*/
+
+        }
+
+        span:nth-child(1){/*Seleciona a tag span que seja primeiro filho de outra tag*/
+
+        }
+        
+        section > :nth-child(odd){/*seleciona os filhos ímpares de section*/
+            
+        }
+
+        section > :nth-child(even){/*seleciona os filhos pares de section*/
+            
+        }
+
+        section > :nth-child(1){/*seleciona o primeiro filho de uma tag section*/
+            
+        }
+        
+        section > :nth-child(1), ul, p{/*seleciona o primeiro filho de uma tag section, seleciona também a tag ul e p do documento inteiro*/
+            
+        }
+
+        section > :nth-child(odd) label{/*seleciona o label dos filhos pares de uma section*/
+
+        }
+
+        section > span:nth-of-type(2){/*seleciona o segundo elemento span filho de section*/
+
+        }
+
+
+
+
     </style>
 </head>
 
