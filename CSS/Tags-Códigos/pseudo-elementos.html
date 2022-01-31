@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /*Aplica os estilos na primeira linha do texto*/
+        /*Note: The ::first-line pseudo-element can only be applied to block-level elements.*/
+        /*Selects the first line of each <p> element*/
+        p::first-line {
+            color: #ff0000;
+            font-variant: small-caps;
+        }
+        /*Aplica os estilos a primeira letra do texto/ Selects the first letter of each <p> element */
+        p::first-letter {
+            color: #0829e0;
+            font-size: xx-large;
+        }
+        
+        p#intro::first-letter {/*Aplica os estilos a primeira letra da tag p que tenha o id intro*/
+        color: #00ff6a;
+        font-size: 200%;
+        }
+
+        p#antes::before{/*Aplica estilo ou insere elementos antes do conteúdo do elemento escolhido*/
+            content: url(galo.gif);
+        }
+
+        p#depois::after{/*Aplica estilo ou insere elementos depois do conteúdo do elemento escolhido*/
+            content: url(galo.gif);
+        }
+
+        ::marker{/*The ::marker pseudo-element selects the markers of list items.*/
+            color: pink;
+            font-size:23px ;
+        }
+
+        ::selection{/*Define como será a seleção do usuário, quando se segura o botão esquerdo do mouse e seleciona partes do texto*/
+            color: black;
+            background:pink;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="intro">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio officiis saepe deleniti dolores sit, nulla eligendi voluptates maxime officia! Sunt iusto saepe aperiam quae blanditiis ab unde error odit illo!
+    </p>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim, pariatur atque voluptatem sapiente aspernatur
+        facere doloremque unde asperiores veritatis libero. Explicabo deserunt officiis sequi, optio perferendis magni
+        ex nesciunt eligendi?
+    </p>
+
+    <p id="antes">
+        inserir antes
+    </p>
+
+    <p id="depois">
+        Inserir depois
+    </p>
+
+    <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ul>
+      
+      <ol>
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+      </ol>
+    
+</body>
+
+
+</html>
+

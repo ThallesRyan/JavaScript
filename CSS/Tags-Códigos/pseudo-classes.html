@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-Classe</title>
+    <style>
+        div {
+            margin: 25px;
+        }
+        /*The :active selector styles the active link.*/
+        /*Estilo do link quando é clicado*/
+        a:active {
+        background-color: blue;
+        color: white;
+        }
+
+        .Inputchecked:checked{/*Define um estilo quando determinado elemento estiver "checkado ou selecionado*/
+            height: 50px;
+            width: 50px;
+        }
+
+        
+        /*Aplica estilos ao imput do tipo texto que estiver enable*/
+        .enableForm[type=text]:enabled {/*input:disabled aplicaria para todos input enable*/
+        /* input[type=text]:enabled{}*/    
+            background: green;
+            color: white;
+        }
+        /*Aplica estilos ao imput do tipo texto que estiver disabled*/
+        input[type="text"]:disabled{
+            background-color: aquamarine;
+        }
+        /*Aplica estilo a tag option que estiver disabled*/
+        option:disabled {
+            background: red;
+        }
+
+        option:checked {
+            height: 100px;
+            width: 100px;
+            background: black;
+            color:white;
+        }
+
+        /*Aplica estilos as tags p que estiverem vazias*/
+        p:empty{
+            width: 100px;
+            height: 20px;
+             background: #ff0000;
+        }
+        /*Seleciona as tags p que sao da classe primeiro e são o primeiro filho de outra tag*/
+        p.primeiro:first-child {
+            background-color: yellow;
+        }
+
+        /*Seleciona a primera aparição da tag p*/
+        /*Primeira aparição da tag p na div de classe primeiroP*/
+        .primeiroP  p:first-of-type {
+        background: wheat;
+        }
+
+        /*Aplica estilos quando um elemento estiver em foco, como um formulário por exemplo*/
+        .focusInput:focus{
+            background-color: rgb(219, 37, 122);
+            color: white;
+        }
+        .focusInput{
+            background-color:rgb(228, 170, 197) ;
+            color:black;
+        }
+
+        /*The :hover selector is used to select elements when you mouse over them.*/
+        a.hoverA:hover{
+            background-color:rgb(219, 37, 122) ;
+            color: white;
+        }
+        a.hoverA{
+            display: block;
+            padding: 3px;
+            border-radius: 10px;
+        }
+    
+    </style>
+</head>
+<body>
+<div>
+    <a href="https://www.w3schools.com">W3schools.com</a><br>
+    <a href="https://www.w3schools.com/html/">HTML</a><br>
+    <a href="https://www.w3schools.com/css/">CSS</a>
+</div>
+
+<div>
+    <form action=""><!--checked="checked" para definir algo como selecionado-->
+        <input type="radio" class="Inputchecked" value="male" name="gender"> Male<br>
+        <input type="radio" class="Inputchecked" value="female" name="gender"> Female<br>
+        <input type="checkbox" class="Inputchecked" value="Bike"> I have a bike<br>
+        <input type="checkbox" class="Inputchecked" value="Car"> I have a car 
+      </form>
+</div>
+
+    <div>
+        <form action="">
+            First name: <input type="text" class="enableForm" value="Mickey"><br>
+            Last name: <input type="text" class="enableForm" value="Mouse"><br>
+            Country: <input type="text" disabled="disabled" value="Disneyland">
+        </form>
+    </div>
+
+    <div>
+        <select>
+            <option value="volvo">Volvo</option>
+            <option value="saab" disabled>Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi" disabled>Audi</option>
+            <option value="bmw">BMW</option>
+          </select>
+    </div>
+
+    <div id="father">
+        <p></p>
+        <p>A paragraph.</p>
+        <p>Another paragraph.</p>
+    </div>
+
+    <div>
+        <p class="primeiro">This paragraph is the first child of its parent (body).</p>
+        <p class="primeiro">This paragraph is not the first child of its parent (body).</p>
+
+        <div>
+            <p class="primeiro">This paragraph is the first child of its parent (div).</p>
+            <p class="primeiro">This paragraph is not the first child of its parent (div).</p>
+        </div>
+    </div>
+    
+    <div class="primeiroP">
+        <p>The first paragraph.</p>
+        <p>The second paragraph.</p>
+        <p>The third paragraph.</p>
+        <p>The fourth paragraph.</p>
+    </div>
+    <p>Click inside the text fields to see a yellow background:</p>
+    <form>
+      First name: <input class="focusInput" type="text" name="firstname"><br>
+      Last name: <input class="focusInput" type="text" name="lastname">
+    </form>
+    <div>
+        <a class="hoverA" href="https://www.w3schools.com">w3schools.com</a>
+        <a class="hoverA" href="https://www.wikipedia.org">wikipedia.org</a>
+    </div>
+</body>
+</html>
