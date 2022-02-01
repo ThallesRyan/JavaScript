@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <title>Altura e Largura</title>
     <style>
+        html{
+            height: 100%;/*Ocupa 100% da altura do documento*/
+        }
         body {
             font-size: 40px;
             background-color: coral;
+            height: 100%;
+            margin: 0;
         }
 
         div {
@@ -17,12 +22,22 @@
         span {
             background-color: dodgerblue;
         }
+
+        span,
+        div{
+            width: 50%;
+            height: 50%;/*altura relativa, o body é pqueno quando tem poucos elemento, e a altura sendo 50% do body, não mudará tanto esse elemento*/
+            height: 250px;/*altura absoluta, força o body a aumentar de tamanho para adequar ao tamanho dos elementos contidos nele*/
+            /*display: block;*/
+            display: inline-block;
+        }
+
     </style>
 </head>
 
 <body>
-    <div>Título</div>
-    <span>Subtítulo</span>
+    <!--Para fazer os elementos ficarem um do lado do outro-->
+    <div>Título</div><span>Subtítulo</span>
 </body>
 
 </html>
