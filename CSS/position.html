@@ -5,7 +5,63 @@
     <meta charset="UTF-8">
     <title>Position</title>
     <style>
-        /* ... */
+        div {
+            font-size: 60px;
+            padding: 30px;
+            border: solid 5px #222;
+            color: #fff;
+        }
+        .static {/*Segue o curso padrão da página, top,left não faz diferenças na posição*/
+            top: 100px;
+            left: 100px;
+            background-color: steelblue;
+        }
+
+        .fixed {/*Fica fixo em uma parte da página, mesmo com barra de rolagem*/
+            position: fixed;
+            bottom: 0px;
+            right: 0px;
+            background-color: tomato;
+        }
+
+        .relative1 {/*Considera o elemento anterior para posicionar o elemento*/
+            position: relative;
+            left: 50px;
+            top: 5px;
+            background-color: seagreen;
+        }
+
+        .absolute1 {/*Se posiciona de forma absoluta dentro da página ou do seu pai(se ele for relative), pode passar por cima de outros elementos*/
+            position: absolute;
+            left: 350px;
+            top: 120px;
+            background-color: violet;
+        }
+
+        .relative2 {/*Pai position relative*/
+            position: relative;
+            left: 250px;
+            top: 2000px;
+            width: 200px;
+            height: 200px;
+            background-color: slategrey;
+        }
+
+        .absolute2 {/*Filho position absolute, se posiciona de forma absoluta dentro da classe pai, já que ela é relative*/
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: orange;
+        }
+
+        .sticky {/*Gruda no topo da página ao usar a barra de rolagem e passar dele*/
+            position: -webkit-sticky; /* safari */
+            position: sticky;
+            background-color: #777;
+            top: 10px;
+        }
     </style>
 </head>
 
