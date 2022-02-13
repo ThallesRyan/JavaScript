@@ -11,48 +11,85 @@
             font-family: 'Oswald', sans-serif;
             background-color: lightgray;
         }
-        
+
         .cabecalho {
             background: #333;
             color: #fff;
             border-bottom: solid 5px #4faddb;
             height: 80px;
         }
-        
+
         .logo img {
             height: 50px;
         }
-        
+
         .menu ul {
             list-style: none;
             margin: 0;
             padding: 0;
         }
-        
+
         .cabecalho a {
             text-decoration: none;
             color: #eee;
             font-size: 1.3em;
             padding: 10px 15px;
         }
-        
+
         .menu a:hover {
             background-color: #4faddb;
             color: #000;
         }
-        
+
         .cabecalho .botao {
             border-radius: 30px;
             padding: 10px 25px;
             margin-right: 10px;
         }
-        
+
         .destaque {
             background: #f50a31;
             color: #fff;
         }
+
         /* ==================== */
         /* Solução com Flex Box */
+
+        .cabecalho {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            
+        }
+
+        .logo{
+            /* align-self: center; */
+            margin-right: 50px;
+        }
+
+        .cabecalho .menu {
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+            /* align-self:center; */
+            
+        }
+
+        .menu ul {
+            display: flex;
+            flex-direction: row;
+
+            /* flex-grow:10 ;
+            justify-content: space-around; */
+            
+        }
+        
+        .autenticacao{
+            /* align-self: center; */
+        }
+
+
+
         /* ==================== */
     </style>
 </head>
