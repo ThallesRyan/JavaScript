@@ -4,18 +4,103 @@
 <head>
     <meta charset="UTF-8">
     <title>Flexbox #02</title>
-    <link rel="stylesheet" href="css/tag.css">
+    <!-- <link rel="stylesheet" href="css/tag.css"> -->
     <style>
-        /* ... */
+        div {
+            border: solid 5px dodgerblue;
+            font-size: 40px;
+
+        }
+
+        .flex-container div {
+            /*Conta a borda no tamanho total da "caixa"*/
+            box-sizing: border-box;
+        }
+
+        .flex-container {
+            display: flex;
+            /*Padrao flex-direction:row*/
+            /*Padrao: align-items:stretch; */
+            height: 300px;
+            width: 600px;
+        }
+
+        /*Terceira div filha de flex-container*/
+        .flex-container div:nth-child(3) {
+            background-color: indianred;
+            /*Define a prioridade de ordem dessa div no flex.container(flexbox)*/
+            /*Ordem padrao*/
+            order: 0;
+            /*última*/
+            order: 1;
+            /*Primeiro */
+            order: -1;
+
+            /*Alinha o item de acordo com a direction do flex*/
+            align-self: center;
+            align-self: flex-end;
+            align-self: flex-start;
+            align-self: stretch;
+        }
+
+        .flex-container div{
+            width:100px;
+            /*Divide o restante do tamanho do flex para cada elemento igualmente
+            Considerando 4 elementos e cada elemento ocupa 100px, sendo o flex com o total de 600px...Com o
+            flex grow de todos elementos igual a 1, esse espaço restante será divido igualmente para tdos elementos*/
+            
+            /* O valor do espaço sobressalente é divido pelo total de flex-grow, 
+             sendo que cada elemento receberá  (soma de flex-grow dos elementos/pixels sobressalentes) * (valor de seu flex-grow) 
+             
+             ex: elemento1: flex-grow:1 , elemento2: flex-grow:1 , elemento3: flex-grow:1 elemento4: flex-grow:2... há 100 pixels sobrando
+                (1+1+1+2 / 100) = 20 , 
+                elemento1: 1 * 20 = recebrá 20 pixels a mais
+                elemento2: 1 * 20 = recebrá 20 pixels a mais
+                elemento3: 1 * 20 = recebrá 20 pixels a mais
+                elemento4: 2 * 20 = recebrá 40 pixels a mais
+
+                Se cada elemnto antes tinha 50px, agora terão:
+                elemento1: 70px
+                elemento2: 70px
+                elemento3: 70px
+                elemento4: 90px
+                */
+
+            /*Nenhum cresce */
+            flex-grow:0;
+            flex-grow:1;
+        }
+        
+        .flex-container div:nth-child(1){
+            flex-grow: 2;
+        }
+
+        .flex-container{
+            width: 300px;
+            /*Diminui os itens para que caibam no tamanho da div etc*/
+            flex-shrink: 1;
+        }
+
+        .flex-container div:nth-child(1){
+            flex-shrink: 3;
+        }
+
+        
     </style>
 </head>
 
 <body>
-    <div class="flex-container tag nolabel">
+    <!-- <div class="flex-container">
         <div class="tag nolabel">1</div>
         <div class="tag nolabel">2</div>
         <div class="tag nolabel">3</div>
         <div class="tag nolabel">4</div>
+    </div> -->
+    <div class="flex-container">
+        <div class="">1</div>
+        <div class="">2</div>
+        <div class="">3</div>
+        <div class="">4</div>
     </div>
     <script src="js/tag.js"></script>
 </body>

@@ -8,65 +8,113 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     
     <style>
-        .cabecalho{
-            background-color: black;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+     * {/*Determina que todos elementos tenham a borda contando como height e width*/
+            box-sizing: border-box;
         }
 
-        .logo{
-            display: inline;
-            
-        }
-        .menu ,ul, li{
-            display:inline ;
-            font-size: 30px;
-            padding: 10px;
-            position: relative;
-            left: 30px;
-            
-           
-            
+        body {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            background-color: lightgray;
         }
 
-         a {
+        .cabecalho {
+            background: #333;
+            border-bottom: solid 5px #4faddb;
+            height: 80px;
+            /*border não conta no tamanho do height, e sim como adicional*/
+            box-sizing: content-box;
+        }
+
+        .logo {
+            display: inline-block;
+            height: 80px;
+            padding: 15px;
+        }
+
+        .logo img {
+            height: 100%;
+        }
+
+        .menu-toggle {
+            /*Muda totalmente a posição do elemento*/
+            float: right;
+            color: #eee;
+            background-color: #555;
+            border: solid 1px #777;
+            border-radius: 5px;
+            height: 40px;
+            padding: 10px 20px;
+            margin: 20px 15px;
+        }
+
+        .menu {
+            display: inline-block;
+            vertical-align: top;
+            height: 80px;
+            padding: 25px;
+        }
+
+        .menu ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            display: inline-block;
+        }
+
+        .cabecalho a {
             text-decoration: none;
-            
+            color: #eee;
+            font-size: 1.3em;
         }
 
-        .menu a{
-            position: relative;
-            bottom: 20px;
+        .menu a {
+            padding: 15px;
         }
 
-        .menu a:visited{
-            text-decoration: none;
-            color: aliceblue;
+        .autenticacao {
+            float: right;
+            height: 80px;
+            padding: 25px;
         }
 
-        .menu-toggle{
-            display: none;
+        .menu a:hover,
+        .menu a.selected {
+            background-color: #4faddb;
+            color: #000;
         }
 
-        .cabecalho img{
-            width: calc(529px - 22%);
-            height: calc(100px - 22%);
+        .botao {
+            border-radius: 30px;
+            padding: 10px 25px;
             margin: 10px;
-            
-            
         }
 
-        .autenticacao{
-            display: inline;
-            position: relative;
-            left: 100px;
-
-            position: relative;
-            bottom: 20px;
-            
+        .destaque {
+            background: #f50a31;
+            color: #fff;
         }
+
+        @media(min-width: 679px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        @media(max-width: 680px) {
+            .menu {
+                display: none;
+            }
+        }
+
+        @media(max-width: 910px) {
+            .autenticacao {
+                display: none;
+            }
+        }
+
 
     </style>
 </head>
@@ -104,7 +152,18 @@
     </header>
 
     <script>
-        // ...
+        // Ativa quando a parte após o # da url é modificado, retorna a antiga url e a nova
+         window.onhashchange = function(e) {
+            const oldURL = e.oldURL.split('#')[1]
+            const newURL = e.newURL.split('#')[1]
+            console.log(oldURL, newURL)
+            //
+            const oldLink = document.querySelector(`.menu a[href='#${oldURL}']`)
+            const newLink = document.querySelector(`.menu a[href='#${newURL}']`)
+            //executa o segundo comando se o primeiro for verdadeiro... como se fosse um if, só que menor
+            oldLink && oldLink.classList.remove('selected')
+            newLink && newLink.classList.add('selected')
+        }
     </script>
 </body>
 
