@@ -6,14 +6,14 @@
     <title>CSS Grid #01</title>
     <style>
         /* https://caniuse.com/#feat=css-grid */
-        
+
         html,
         body {
             margin: 20px;
-            height: calc(100% - 40px);
+            height: calc(100% - 10px);
             background-color: lightgray;
         }
-        
+
         div {
             display: flex;
             align-items: center;
@@ -21,6 +21,52 @@
             font-size: 30px;
             border: solid 5px dodgerblue;
             background: #fff;
+        }
+
+        body {
+            display: grid;
+            /*Divide o gride em duas colunas, cada uma com 50% do tamanho total*/
+            grid-template-columns: 50% 50%;
+            grid-template-columns: repeat(2, 50%);
+            grid-template-columns: repeat(4, 8.33%, 8.33%, 8.33%);
+            /*Divide em 12 colunas, com 8.33% do espaço cada*/
+            grid-template-columns: repeat(12, 8.33%);
+            /*11 colunas com 100px cada, e outra coluna(última) com 200px*/
+            grid-template-columns: repeat(11, 100px) 200px;
+            /* minmax(100px, 300px) define o min sendo 100px e o max sendo 300px */
+            /*Divide em 3 colunas,com 200px, 20% e a última com 1 fraçaõ(o que sobrou)*/
+            grid-template-columns: 200px 20% 1fr;
+            /*1 linha com 50% do espaço, 2 com 25%, 3 e 4 com 12.5% cada*/
+            grid-template-rows: 50% 25% 12.5% 12.5%;
+            /*1 linha com 100px, 2 com 1 fr, e as outras linhas com o que sobrou dividas igualmente*/
+            grid-template-rows: 100px 1fr;
+            /*Primeira linha com 100px, e as outras automáticas*/
+            grid-template-rows: 100px auto auto auto;
+        }
+
+        .d8{
+            /*Começa na coluna 2 e termina na coluna 4*/
+            grid-column-start: 2;
+            grid-column-end: 4;
+            /*Apartir da coluna que ocupa, vai alongar por mais 1 coluna*/
+            grid-column-end: span 2;
+            /*Começa na linha 3 e termina na linha 5*/
+            grid-row-start: 3;
+            grid-row-end: 5;
+            /*Apartir da linha que ocupa, vai alongar por mais 1 linha*/
+            grid-row-end: span 2;
+        }
+
+        .d10,.d11{
+             /* podem se sobrepor */
+             grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 5;
+            grid-row-end: span 1;
+        }
+
+        .d10 {
+            z-index: 10;
         }
     </style>
 </head>
