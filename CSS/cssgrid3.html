@@ -6,7 +6,55 @@
     <title>CSS Grid #03</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        header{
+            grid-area:cabecalho;
+        }
+
+        nav {
+            grid-area: navegacao;
+        }
+
+        main {
+            grid-area: conteudo;
+        }
+
+        footer {
+            grid-area: rodape;
+        }
+
+        body {
+            display: grid;
+            /*a altura ocupa 100% do viewport*/
+            min-height: 100vh;
+            /*Divide o grid em duas colunas: uma de 300px e outra do espaço restante*/
+            grid-template-columns: 300px 1fr;
+
+            /*Divide em três linhas*/
+            grid-template-rows: 100px 1fr 100px;
+
+            grid-template-areas:
+                'cabecalho cabecalho'
+                'navegacao conteudo'
+                'rodape rodape';
+                /*cabealho ocupa as duas colunas da primeira linha*/
+                /*Navegação ocupa a primeira coluna da segunda linha e o conteudo ocupa a segunda coluna*/
+                /*rodape ocupa a primeira e a segunda coluna da terceira linha*/
+        }
+
+        @media(max-width:700px){
+            body{
+                grid-template-columns: 1fr;
+                grid-template-rows: 80px 1fr 100px;
+                grid-template-areas: 'navegacao' 'conteudo' 'rodape';
+            }
+            header { display: none; }
+
+        }
     </style>
 </head>
 
